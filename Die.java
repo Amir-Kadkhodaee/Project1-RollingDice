@@ -1,13 +1,13 @@
 import java.util.Random;
 
-public class Roll {
+public class Die {
 
     private int numberOfSides;
 private int currentValue;
 
 private Random rand;
 
-public Roll(int numberOfSides) {
+public Die(int numberOfSides) {
     this.numberOfSides = numberOfSides;
     this.rand = new Random();
     this.currentValue = 1; 

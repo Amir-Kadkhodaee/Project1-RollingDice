@@ -1,4 +1,4 @@
-import java.util.Random;
+/*import java.util.Random;
 import java.util.Scanner;
 public class Player {
 
@@ -113,5 +113,53 @@ public class Player {
         if (guessValue == DieValue) {
             this.playerScore += points;
         } 
+    }
+} */
+
+
+ public class Player {
+    private String name;
+    private int score;
+    private Die die;
+
+    public Player(String name) {
+        this.name = name;
+        this.score = 0;
+        this.die = null;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void rollDice() {
+        if (this.die != null) {
+            this.die.roll();
+        } else {
+            System.out.println(name + " har ingen tärning att rulla än!");
+        }
+    }
+
+    public int getDieValue() {
+        if (this.die != null) {
+            return this.die.getCurrentValue();
+        }
+        return 0;
+    }
+
+    public void increaseScore() {
+        this.score++;
+    }
+
+    public void addDie(int numberOfSides) {
+        this.die = new Die(numberOfSides);
     }
 }
