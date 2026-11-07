@@ -41,20 +41,27 @@ public class DiceGame {
                     if (confirmationControl.equalsIgnoreCase("Y")){
                         
                         System.out.println("You have chosen to play " + totalTurns + " rounds.");
+                        break;
+                    } else if ((confirmationControl.matches("\\d+"))) {
+                            totalTurns = Integer.parseInt(confirmationControl);
 
-                    } else {
-                        
-                        totalTurns = Integer.parseInt(confirmationControl);// Reset totalTurns to a new value based on user input
-                        
-    
                     }
-                }
+                     else {
+
+                        System.out.println("That is not a number! Please insert a valid number.");
+
+                        }
+                    }
+                //}
                 else if (totalTurns <= 0) {
                     System.out.println("You must play at least 1 round.");
                 }
+                
             } else {
+                
                 System.out.println("That's not a number! Please try again.");
-                scanner.nextLine(); 
+                scanner.nextLine();
+
             }
         } while (totalTurns <= 0 || totalTurns > 100);
         // Initializes the player object and build their die
@@ -98,7 +105,7 @@ public class DiceGame {
         }
             // Displays the final score and ends the game
         System.out.println("\n----------------------------------------");
-        System.out.println("The game is over! " + player.getName() + " scored a total of " + player.getScore() + " points.\n");
+        System.out.println("\nThe game is over! " + player.getName() + " scored a total of " + player.getScore() + " points.\n");
         
         scanner.close(); // Closes the scanner to prevent resource leaks
     }
